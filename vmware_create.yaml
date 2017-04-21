@@ -1,7 +1,7 @@
 # Create a new VM from a template using the new vmware_guest module
   - name: VM from template
     hosts: localhost
-    gather_facts: false
+    gather_facts: no
     connection: local
     vars:
       vcenter_hostname: vcenter.a1sydlab.local
@@ -14,8 +14,8 @@
       dumpfacts: False
     tasks:
       - name: Check for required variables
-        fail: msg="Must pass name and group to -e"
-        when: name is not defined or group is not defined
+        fail: msg="Must pass name"
+        when: name is not defined
 
       - name: Check for vSphere access parameters
         fail: msg="Must set vcenter_user and vcenter_pass in a Vault"
@@ -23,7 +23,7 @@
         
       - name: Create VM from template
         vmware_guest:
-          validate_certs: False
+          validate_certs: no
           hostname: "{{ vcenter_hostname }}"
           username: "{{ vcenter_user }}"
           password: "{{ vcenter_pass }}"
@@ -40,7 +40,7 @@
               network: "{{ network }}"
           hardware:
             memory_mb: "{{ vm_memory | default(1024) }}"
-          wait_for_ip_address: True
+          wait_for_ip_address: yes
           state: present
         register: newvm
         
