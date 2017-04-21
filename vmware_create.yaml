@@ -11,7 +11,7 @@
       vmtemplate: Centos7
       vmcluster: A1SYDLAB
       notes: Created by Ansible
-      dumpfacts: False
+      dumpfacts: false
     tasks:
       - name: Check for required variables
         fail: msg="Must pass name"
@@ -28,7 +28,7 @@
           username: "{{ vcenter_user }}"
           password: "{{ vcenter_pass }}"
           esxi_hostname: "{{ esxhost }}"
-          datacenter: BOX
+          datacenter: Datacenter
           name: "{{ name }}"
           template: "{{ vmtemplate }}"
           disk:
