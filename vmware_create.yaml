@@ -1,6 +1,6 @@
 # Create a new VM from a template using the new vmware_guest module
   - name: VM from template
-    hosts: vmcreate
+    hosts: localhosts
     gather_facts: false
     connection: local
     vars:
