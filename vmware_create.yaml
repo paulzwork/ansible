@@ -40,6 +40,7 @@
               network: "{{ network }}"
           hardware:
             memory_mb: "{{ vm_memory | default(1024) }}"
+            num_cpus: "{{ cpus | default(2) }}"
           wait_for_ip_address: yes
           state: present
         register: newvm
