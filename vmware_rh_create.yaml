@@ -39,7 +39,7 @@
             - name: "{{ network }}"
               device_type: vmxnet3
           hardware:
-          - memory_mb: "{{ vm_memory | default(1024) }}"
+            memory_mb: "{{ vm_memory | default(1024) }}"
             num_cpus: "{{ cpus | default(2) }}"
           wait_for_ip_address: yes
           state: present
