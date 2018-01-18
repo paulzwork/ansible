@@ -37,7 +37,7 @@
               datastore: "{{ datastore }}"
           nic:
             - type: vmxnet3
-              network: "{{ network }}"
+              networks: "{{ network }}"
           hardware:
             memory_mb: "{{ vm_memory | default(1024) }}"
             num_cpus: "{{ cpus | default(2) }}"
