@@ -32,14 +32,14 @@
           name: "{{ name }}"
           template: "{{ vmtemplate }}"
           disk:
-              size_gb: "{{ disk_size | default(20) }}"
+             - size_gb: "{{ disk_size | default(20) }}"
               type: thin
               datastore: "{{ datastore }}"
           networks:
+             - name: "{{ network }}"
               device_type: vmxnet3
-              name: "{{ network }}"
           hardware:
-            memory_mb: "{{ vm_memory | default(1024) }}"
+            - memory_mb: "{{ vm_memory | default(1024) }}"
             num_cpus: "{{ cpus | default(2) }}"
           wait_for_ip_address: yes
           state: present
