@@ -32,11 +32,11 @@
           name: "{{ name }}"
           template: "{{ vmtemplate }}"
           disk:
-             - size_gb: "{{ disk_size | default(20) }}"
+            - size_gb: "{{ disk_size | default(20) }}"
               type: thin
               datastore: "{{ datastore }}"
           networks:
-             - name: "{{ network }}"
+            - name: "{{ network }}"
               device_type: vmxnet3
           hardware:
             - memory_mb: "{{ vm_memory | default(1024) }}"
